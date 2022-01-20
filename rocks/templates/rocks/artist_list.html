@@ -1,0 +1,14 @@
+<!-- return statement of a react component -->
+{% extends 'rocks/base.html' %}  {% block content %}
+<h2>Artist <a href="{%url 'artist_create' %}">(+)</a> </h2>
+<ul>
+    {% for artist in artists %}
+    <li>
+        <a href="{% url 'artist_detail' pk=artist.pk %}">{{ artist.name }}</a>
+    </li>
+    <li>
+        <img src="{{ artist.photo_url }}" alt="" class="artist-photo"/>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
